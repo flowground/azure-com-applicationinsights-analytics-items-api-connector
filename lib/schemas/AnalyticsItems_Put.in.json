@@ -1,0 +1,102 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "scopePath": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "analyticsItems",
+                "myanalyticsItems"
+            ]
+        },
+        "overrideItem": {
+            "required": false,
+            "type": "boolean"
+        },
+        "requestBody": {
+            "description": "Properties that define an Analytics item that is associated to an Application Insights component.",
+            "properties": {
+                "Content": {
+                    "description": "The content of this item",
+                    "type": "string"
+                },
+                "Id": {
+                    "description": "Internally assigned unique id of the item definition.",
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "The user-defined name of the item.",
+                    "type": "string"
+                },
+                "Properties": {
+                    "description": "A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.",
+                    "properties": {
+                        "functionAlias": {
+                            "description": "A function alias, used when the type of the item is Function",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Scope": {
+                    "description": "Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.",
+                    "enum": [
+                        "shared",
+                        "user"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "ItemScope"
+                    }
+                },
+                "TimeCreated": {
+                    "description": "Date and time in UTC when this item was created.",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "TimeModified": {
+                    "description": "Date and time in UTC of the last modification that was made to this item.",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "Type": {
+                    "description": "Enum indicating the type of the Analytics item.",
+                    "enum": [
+                        "query",
+                        "function",
+                        "folder",
+                        "recent"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "ItemType"
+                    }
+                },
+                "Version": {
+                    "description": "This instance's version of the data model. This can change as new features are added.",
+                    "readOnly": true,
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

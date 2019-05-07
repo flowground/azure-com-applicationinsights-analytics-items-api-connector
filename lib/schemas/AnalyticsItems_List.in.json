@@ -1,0 +1,54 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "scopePath": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "analyticsItems",
+                "myanalyticsItems"
+            ]
+        },
+        "scope": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "shared",
+                "user"
+            ],
+            "default": "shared"
+        },
+        "type": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "none",
+                "query",
+                "function",
+                "folder",
+                "recent"
+            ],
+            "default": "none"
+        },
+        "includeContent": {
+            "required": false,
+            "type": "boolean"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
